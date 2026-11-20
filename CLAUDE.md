@@ -34,7 +34,7 @@ GitHub Pages (Gratis-Plan) geht nur mit öffentlichen Repos. Ausdrücklich vom N
 - Abstände 4/8/12/16/24/32/48, Radien 8/14.
 
 ## App-Symbol
-`icon.svg` ist die Vorlage (auch Favicon): eigene Spielleiter-Maske mit Narrenkappe, Zipfel in Pink/Gold/Orange (Spielfarben), Schellen neutral – bewusst keine bestehende Figur nachbilden. Inhalt bleibt im inneren 80-%-Kreis (gilt auch als «maskable» für Android). PNGs neu rendern (Playwright vorhanden):
+`icon.svg` ist die Vorlage (auch Favicon): eigene Spielleiter-Maske mit Narrenkappe, Zipfel in Pink/Gold/Orange (Spielfarben), Schellen neutral – bewusst keine bestehende Figur nachbilden. Die Maske füllt das Symbol fast ganz (iPhone schneidet nur die Ecken ab). Für Android gibt es `icon-maskable.svg` → `icon-maskable-512.png` mit Rand: dort bleibt alles im inneren 80-%-Kreis, weil Android das Symbol rund oder anders zuschneiden kann. PNGs neu rendern (Playwright vorhanden; für die Android-Variante `icon-maskable.svg` → `icon-maskable-512.png`):
 ```
 node -e 'const {chromium}=require("playwright");(async()=>{const b=await chromium.launch(),s=require("fs").readFileSync("icon.svg","utf8");for(const n of [180,192,512]){const p=await b.newPage({viewport:{width:n,height:n}});await p.setContent(`<style>html,body{margin:0}svg{display:block;width:${n}px;height:${n}px}</style>`+s);await p.screenshot({path:`icon-${n}.png`})}await b.close()})()'
 ```

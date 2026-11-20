@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>GameMaster</title>
+  <meta name="description" content="Alle Spiele in einer App: Music 1v1, Musik-Quiz, TotalGuesser und Tools.">
+  <meta name="theme-color" content="#121115">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="GameMaster">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&display=swap">
+  <link rel="stylesheet" href="/styles.css?v=1">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-glovenote" viewBox="0 0 24 24"><path d="M6 15.5V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-1.5"/><path d="M5.5 15.5H14a2 2 0 0 0 2-2V8A5 5 0 0 0 11 3H8.5A4.5 4.5 0 0 0 4 7.5V9"/><path d="M4 9a2 2 0 0 0-2 2v1a3.5 3.5 0 0 0 3.5 3.5"/><path d="M4 9.5c2 0 3.5 1 3.5 3"/><ellipse cx="19" cy="19" rx="2" ry="1.6"/><path d="M21 19v-8l1.5 1"/></symbol>
+  <symbol id="i-buzzernote" viewBox="0 0 24 24"><path d="M3 15a5 5 0 0 1 10 0"/><rect x="1.5" y="15" width="13" height="4.5" rx="1.3"/><path d="M8 7.5V6M4.3 9.2l-.9-.9M11.7 9.2l.9-.9"/><ellipse cx="19" cy="18.5" rx="2" ry="1.6"/><path d="M21 18.5v-8l1.5 1"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+</svg>
+<main>
+  <header>
+    <h1>GameMaster</h1>
+    <p>Wähl ein Spiel.</p>
+  </header>
+  <nav aria-label="Spiele">
+    <ul class="apps">
+      <li><a class="app mb" href="/MusicBattle/">
+        <span class="icon"><svg aria-hidden="true"><use href="#i-glovenote"/></svg></span>
+        <span><span class="name">Music 1v1</span><span class="desc">Künstler draften, Songs wählen, abstimmen – zu zweit.</span></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+      <li><a class="app quiz" href="/MusicBattle/">
+        <span class="icon"><svg aria-hidden="true"><use href="#i-buzzernote"/></svg></span>
+        <span><span class="name">Musik-Quiz</span><span class="desc">Fragen aus euren Spotify-Songs – allein oder mit allen.</span></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+      <li><a class="app tg" href="/TotalGuesser/">
+        <span class="icon"><svg aria-hidden="true"><use href="#i-target"/></svg></span>
+        <span><span class="name">TotalGuesser</span><span class="desc">Basketball-Statistiken schätzen.</span></span>
+        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
+      <li><details id="tools">
+        <summary class="app tools">
+          <span class="icon"><svg aria-hidden="true"><use href="#i-tools"/></svg></span>
+          <span><span class="name">Tools</span><span class="desc">Spotify-Bibliothek aufräumen und Alben entdecken.</span></span>
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+        <ul class="sub">
+          <li><a href="/MusicBattle/?tool=alben"><b>Alben-Fix</b><span>Singles durch die Album-Version ersetzen, Doppelte entfernen.</span></a></li>
+          <li><a href="/MusicBattle/?tool=rad"><b>Albumrad</b><span>Gespeicherte Alben als Rad, mit Zufallsvorschlag.</span></a></li>
+        </ul>
+      </details></li>
+    </ul>
+  </nav>
+</main>
+<script>
+// /#tools (Leiste in den Apps, Roadmap 8.3) öffnet die Tools direkt
+const openTools=()=>{if(location.hash==="#tools")document.getElementById("tools").open=true};
+openTools();addEventListener("hashchange",openTools);
+</script>
+</body>
+</html>

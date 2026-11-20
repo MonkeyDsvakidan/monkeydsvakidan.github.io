@@ -22,7 +22,7 @@ GitHub Pages (Gratis-Plan) geht nur mit öffentlichen Repos. Ausdrücklich vom N
 ## Tech und Regeln
 - Statisches HTML/CSS, kein Build-Step, kein Framework. Push auf `main` = live (GitHub Pages, «Deploy from a branch», `main` / root).
 - Änderungen als Pull Request, nicht direkt auf `main`.
-- Pfade immer absolut (`/styles.css`, `/icons/…`), weil `404.html` unter beliebigen Adressen ausgeliefert wird.
+- Pfade immer absolut (`/styles.css`, `/icon-180.png`), weil `404.html` unter beliebigen Adressen ausgeliefert wird.
 - Nach CSS-Änderungen `?v=` in `index.html` und `404.html` erhöhen.
 - Es gelten die Skills **webseiten-check** (Teil A Design, Teil C Sicherheit – privates Projekt), **ponytail**, bei Design **unslop**.
 
@@ -34,9 +34,9 @@ GitHub Pages (Gratis-Plan) geht nur mit öffentlichen Repos. Ausdrücklich vom N
 - Abstände 4/8/12/16/24/32/48, Radien 8/14.
 
 ## App-Symbol
-`icons/icon.svg` ist die Vorlage (auch Favicon). Inhalt bleibt im inneren 80-%-Kreis (gilt auch als «maskable» für Android). PNGs neu rendern (Playwright vorhanden):
+`icon.svg` ist die Vorlage (auch Favicon). Inhalt bleibt im inneren 80-%-Kreis (gilt auch als «maskable» für Android). PNGs neu rendern (Playwright vorhanden):
 ```
-node -e 'const {chromium}=require("playwright");(async()=>{const b=await chromium.launch(),s=require("fs").readFileSync("icons/icon.svg","utf8");for(const n of [180,192,512]){const p=await b.newPage({viewport:{width:n,height:n}});await p.setContent(`<style>html,body{margin:0}svg{display:block;width:${n}px;height:${n}px}</style>`+s);await p.screenshot({path:`icons/icon-${n}.png`})}await b.close()})()'
+node -e 'const {chromium}=require("playwright");(async()=>{const b=await chromium.launch(),s=require("fs").readFileSync("icon.svg","utf8");for(const n of [180,192,512]){const p=await b.newPage({viewport:{width:n,height:n}});await p.setContent(`<style>html,body{margin:0}svg{display:block;width:${n}px;height:${n}px}</style>`+s);await p.screenshot({path:`icon-${n}.png`})}await b.close()})()'
 ```
 
 ## Testen

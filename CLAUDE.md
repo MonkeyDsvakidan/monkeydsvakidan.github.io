@@ -29,8 +29,9 @@ GitHub Pages (Gratis-Plan) geht nur mit öffentlichen Repos. Ausdrücklich vom N
 ## Design-Brief
 - Zielgruppe: Aladin und Freunde, vor allem am Handy. Ton: kurz, locker, Deutsch (Schweiz, «ss»).
 - Nur dunkel. Tokens oben in `styles.css`: Grund `#121115`, Text `#f3f1f6`, gedämpft `#a9a5b3`, Linien weiss 9 %.
-- Spielfarben nur für das Icon des Eintrags: Music 1v1 Pink `#ff3fa4`, Musik-Quiz Gold `#ffd166`, TotalGuesser Orange `#ff8a3d`, Tools neutral `#c9c4d3`.
-- Schriften: Barlow (Text), Barlow Condensed (Titel). Icons: eigene Linien-SVGs (Strich 1.75) aus der Musterseite.
+- Aufbau: Hintergrund ist ein blasses Muster aus der Maske (`muster.svg`, gleiche Formen wie `icon.svg`, Deckkraft 5 %), oben gross der Schriftzug «GameMaster», darunter je Eintrag eine Kachel: oben ein **Vorschaufenster** im Stil des Spiels (Ausschnitt mit Beispieldaten, `aria-hidden`; Tools: Screenshot aus dem Albumrad `tools-vorschau.jpg` – enthält echte Album-Cover), unten Icon, Name und ein Satz. Handy eine Spalte, ab 760 px zwei.
+- Spielfarben für Icon und Fokus des Eintrags: Music 1v1 Pink `#ff3fa4`, Musik-Quiz Gold `#ffd166`, TotalGuesser Orange `#ff8a3d`, Tools neutral `#c9c4d3`. Die Vorschauen nutzen die Farben und Schriften der Spiele selbst (Music 1v1 «Titelkampf bei Nacht», Quiz «Quizshow-Studio», TotalGuesser «Hallenparkett») – bei Änderungen am Look eines Spiels hier nachziehen.
+- Schriften: Barlow (Text), Barlow Condensed (Titel); in den Vorschauen zusätzlich Bungee und Sedgwick Ave wie in den Spielen. Icons: eigene Linien-SVGs (Strich 1.75) aus der Musterseite.
 - Abstände 4/8/12/16/24/32/48, Radien 8/14.
 
 ## App-Symbol

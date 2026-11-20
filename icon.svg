@@ -1,14 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- GameMaster-Symbol: die vier Einträge der Leiste im 2×2-Raster. Alles innerhalb des inneren 80-%-Kreises (maskable). -->
+  <!-- GameMaster-Symbol: eigene Spielleiter-Maske mit Narrenkappe (Zipfel in den Spielfarben). Alles im inneren 80-%-Kreis (maskable). -->
   <rect width="512" height="512" fill="#151419"/>
-  <circle cx="176" cy="176" r="80" fill="#ff3fa4" fill-opacity=".14"/>
-  <circle cx="336" cy="176" r="80" fill="#ffd166" fill-opacity=".14"/>
-  <circle cx="176" cy="336" r="80" fill="#ff8a3d" fill-opacity=".14"/>
-  <circle cx="336" cy="336" r="80" fill="#c9c4d3" fill-opacity=".12"/>
-  <g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <g transform="translate(122 122) scale(4.5)" stroke="#ff3fa4"><path d="M6 15.5V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-1.5"/><path d="M5.5 15.5H14a2 2 0 0 0 2-2V8A5 5 0 0 0 11 3H8.5A4.5 4.5 0 0 0 4 7.5V9"/><path d="M4 9a2 2 0 0 0-2 2v1a3.5 3.5 0 0 0 3.5 3.5"/><path d="M4 9.5c2 0 3.5 1 3.5 3"/><ellipse cx="19" cy="19" rx="2" ry="1.6"/><path d="M21 19v-8l1.5 1"/></g>
-    <g transform="translate(282 122) scale(4.5)" stroke="#ffd166"><path d="M3 15a5 5 0 0 1 10 0"/><rect x="1.5" y="15" width="13" height="4.5" rx="1.3"/><path d="M8 7.5V6M4.3 9.2l-.9-.9M11.7 9.2l.9-.9"/><ellipse cx="19" cy="18.5" rx="2" ry="1.6"/><path d="M21 18.5v-8l1.5 1"/></g>
-    <g transform="translate(122 282) scale(4.5)" stroke="#ff8a3d"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></g>
-    <g transform="translate(282 282) scale(4.5)" stroke="#c9c4d3"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></g>
+  <g transform="translate(256 262) scale(1.06) translate(-256 -256)">
+    <!-- Narrenkappe: drei Zipfel in Pink, Gold, Orange, mit Schellen -->
+    <path d="M162 182C148 152 130 140 106 144c24 14 34 36 40 60z" fill="#ff3fa4"/>
+    <path d="M350 182c14-30 32-42 56-38-24 14-34 36-40 60z" fill="#ff8a3d"/>
+    <path d="M196 160c4-46 28-80 60-96 32 16 56 50 60 96z" fill="#ffd166"/>
+    <path d="M150 196c24-30 64-44 106-44s82 14 106 44l-8 16H158z" fill="#2a2830"/>
+    <circle cx="106" cy="144" r="13" fill="#c9c4d3"/>
+    <circle cx="406" cy="144" r="13" fill="#c9c4d3"/>
+    <circle cx="256" cy="62" r="13" fill="#c9c4d3"/>
+    <!-- Maske -->
+    <path d="M256 196c-64 0-104 30-104 92 0 40 12 70 30 92 18 22 44 36 74 36s56-14 74-36c18-22 30-52 30-92 0-62-40-92-104-92z" fill="#ece7df"/>
+    <!-- Riss -->
+    <path d="M318 200l-10 22 12 10-14 18" stroke="#151419" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Augen: links gross und rund, rechts schmal zugekniffen -->
+    <circle cx="214" cy="278" r="30" fill="#151419"/>
+    <circle cx="219" cy="281" r="10" fill="#ff3b3b"/>
+    <path d="M274 272c16-14 40-14 56 0-14 20-42 20-56 0z" fill="#151419"/>
+    <circle cx="302" cy="275" r="7" fill="#ff3b3b"/>
+    <path d="M176 238l58 16M338 244l-50 14" stroke="#151419" stroke-width="9" stroke-linecap="round"/>
+    <!-- breites Grinsen bis zu den Wangen, mit Zähnen -->
+    <path d="M178 336c18 46 54 60 78 60s60-14 78-60c-40 18-116 18-156 0z" fill="#151419"/>
+    <path d="M206 346l8 18 10-16 10 20 10-20 12 22 12-22 10 20 10-20 10 16 8-18" fill="#ece7df"/>
+    <path d="M178 336c-6-6-8-14-6-22M334 336c6-6 8-14 6-22" stroke="#d42a2a" stroke-width="7" fill="none" stroke-linecap="round"/>
   </g>
 </svg>

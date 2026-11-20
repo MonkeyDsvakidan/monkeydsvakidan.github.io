@@ -15,8 +15,8 @@
   <link rel="apple-touch-icon" href="/icon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&family=Bungee&family=Sedgwick+Ave+Display&display=swap">
+  <link rel="stylesheet" href="/styles.css?v=2">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -27,29 +27,65 @@
   <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
 </svg>
 <main>
-  <header>
+  <header class="hero">
+    <img class="mask" src="/icon-512.png" alt="" width="144" height="144">
     <h1>GameMaster</h1>
     <p>Wähl ein Spiel</p>
   </header>
   <nav aria-label="Spiele">
-    <ul class="apps">
-      <li><a class="app mb" href="/MusicBattle/?mode=1v1">
-        <span class="icon"><svg aria-hidden="true"><use href="#i-glovenote"/></svg></span>
-        <span><span class="name">Music 1v1</span><span class="desc">Künstler draften, Songs wählen, abstimmen – zu zweit</span></span>
-        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
-      <li><a class="app quiz" href="/MusicBattle/?mode=quiz">
-        <span class="icon"><svg aria-hidden="true"><use href="#i-buzzernote"/></svg></span>
-        <span><span class="name">Musik-Quiz</span><span class="desc">Fragen aus euren Spotify-Songs – allein oder mit allen</span></span>
-        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
-      <li><a class="app tg" href="/TotalGuesser/">
-        <span class="icon"><svg aria-hidden="true"><use href="#i-target"/></svg></span>
-        <span><span class="name">TotalGuesser</span><span class="desc">Basketball-Statistiken schätzen</span></span>
-        <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></a></li>
-      <li><details id="tools">
-        <summary class="app tools">
-          <span class="icon"><svg aria-hidden="true"><use href="#i-tools"/></svg></span>
-          <span><span class="name">Tools</span><span class="desc">Spotify-Bibliothek aufräumen und Alben entdecken</span></span>
-          <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg></summary>
+    <ul class="tiles">
+      <li><a class="tile mb" href="/MusicBattle/?mode=1v1">
+        <span class="preview" aria-hidden="true">
+          <span class="mb-kick">Runde 3 · Thema</span>
+          <span class="mb-theme">Nachtfahrt durch eine Grossstadt</span>
+          <span class="mb-match">
+            <span class="mb-corner a"><small>Pinke Ecke</small>Midnight City</span>
+            <span class="mb-vs">VS</span>
+            <span class="mb-corner b"><small>Cyan Ecke</small>Nightcall</span>
+          </span>
+        </span>
+        <span class="meta">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-glovenote"/></svg></span>
+          <span><span class="name">Music 1v1</span><span class="desc">Künstler draften, Songs wählen, abstimmen – zu zweit</span></span>
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </span></a></li>
+      <li><a class="tile quiz" href="/MusicBattle/?mode=quiz">
+        <span class="preview" aria-hidden="true">
+          <span class="qz-head"><span class="qz-chip">Frage 4 / 10</span><span class="qz-time">12 s</span></span>
+          <span class="qz-bar"><i></i></span>
+          <span class="qz-ask">In welchem Jahr?</span>
+          <span class="qz-ans"><span>1997</span><span>2003</span><span>2008</span><span>2014</span></span>
+        </span>
+        <span class="meta">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-buzzernote"/></svg></span>
+          <span><span class="name">Musik-Quiz</span><span class="desc">Fragen aus euren Spotify-Songs – allein oder mit allen</span></span>
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </span></a></li>
+      <li><a class="tile tg" href="/TotalGuesser/">
+        <span class="preview" aria-hidden="true">
+          <span class="tg-board">
+            <span class="tg-lbl">Runde 2 von 5</span>
+            <span class="tg-team">Golden State Warriors</span>
+            <span class="tg-cat">Punkte in der Karriere</span>
+            <span class="tg-target"><small>Ziel</small><b>41’250</b></span>
+          </span>
+        </span>
+        <span class="meta">
+          <span class="ico"><svg aria-hidden="true"><use href="#i-target"/></svg></span>
+          <span><span class="name">TotalGuesser</span><span class="desc">Basketball-Statistiken schätzen</span></span>
+          <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </span></a></li>
+      <li><details class="tile tools" id="tools">
+        <summary>
+          <span class="preview" aria-hidden="true">
+            <span class="tl-wheel"><i style="--c:#e4572e"></i><i style="--c:#2e86ab"></i><i style="--c:#f2c14e"></i><i style="--c:#3b1f2b"></i><i style="--c:#7bc950"></i><i style="--c:#c3423f"></i><i style="--c:#f5f0e6"></i></span>
+          </span>
+          <span class="meta">
+            <span class="ico"><svg aria-hidden="true"><use href="#i-tools"/></svg></span>
+            <span><span class="name">Tools</span><span class="desc">Spotify-Bibliothek aufräumen und Alben entdecken</span></span>
+            <svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>
+          </span>
+        </summary>
         <ul class="sub">
           <li><a href="/MusicBattle/?tool=alben"><b>Alben-Fix</b><span>Singles durch die Album-Version ersetzen, Doppelte entfernen</span></a></li>
           <li><a href="/MusicBattle/?tool=rad"><b>Albumrad</b><span>Gespeicherte Alben als Rad, mit Zufallsvorschlag</span></a></li>

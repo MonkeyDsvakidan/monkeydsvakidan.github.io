@@ -5,7 +5,7 @@ Startseite der Spiel-App **«GameMaster»** auf `https://monkeydsvakidan.github.
 | Eintrag | Ziel | Repo |
 |---|---|---|
 | Music 1v1 | `/MusicBattle/` | MusicBattle |
-| Musik-Quiz | `/MusicBattle/` (vorerst Music-Battle-Startseite mit Quiz-Karte; direkter Einstieg kommt mit MusicBattle-Roadmap 8.3) | MusicBattle |
+| Musik-Quiz | `/MusicBattle/?mode=quiz` (öffnet direkt die Quiz-Startseite; Parameter seit MusicBattle 8.2) | MusicBattle |
 | TotalGuesser | `/TotalGuesser/` | TotalGuesser |
 | Tools | klappt auf: `/MusicBattle/?tool=alben` (Alben-Fix), `/MusicBattle/?tool=rad` (Albumrad); `/#tools` öffnet direkt | MusicBattle |
 

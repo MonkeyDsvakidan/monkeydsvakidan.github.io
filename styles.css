@@ -61,8 +61,11 @@ svg{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-
 .qz-time{font:400 14px/1 var(--f-num);color:#ffd166}
 .qz-bar{height:6px;border-radius:3px;background:#28304f;overflow:hidden}.qz-bar i{display:block;width:62%;height:100%;background:#ffd166}
 .qz-ask{font:700 1.2rem/1.1 var(--f-title);color:#f1f3fa}
-.qz-ans{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.qz-ans span{display:grid;place-items:center;height:34px;border-radius:var(--r-s);background:#1f2642;border:1px solid #43507a;font:400 12px/1 var(--f-num);color:#f1f3fa}
+/* Jahr wie im echten Quiz: − Jahr + und Schieberegler (nicht vier Knöpfe) */
+.qz-year{display:flex;align-items:center;justify-content:center;gap:12px}
+.qz-year b{font:400 1.5rem/1 var(--f-num);color:#ffd166}
+.qz-step{display:grid;place-items:center;width:30px;height:28px;border-radius:var(--r-s);background:#1f2642;border:1px solid #43507a;font:400 14px/1 var(--f-num);color:#f1f3fa}
+.qz-range{position:relative;height:4px;border-radius:2px;background:#28304f}.qz-range i{position:absolute;left:68%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#ffd166}
 
 /* TotalGuesser – «Hallenparkett»: warmes Dunkel, Tafel mit Bernstein-Ziffern */
 .tg .preview{background:#17120e}

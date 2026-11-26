@@ -32,8 +32,8 @@
     <h1>GameMaster</h1>
     <p>Wähl ein Spiel</p>
   </header>
-  <!-- Weiterspielen (U.4): nur Spiele, deren Stand auf diesem Gerät liegt (TotalGuesser, Poker). Music Battle fehlt bewusst:
-       ob ein Raum noch läuft, weiss nur die Datenbank, und diese Seite nutzt keine. -->
+  <!-- Weiterspielen (U.4/U.5): TotalGuesser und Poker aus dem Speicher dieses Geräts, Music Battle zusätzlich mit dem
+       Raumstatus aus der Datenbank (/mb-resume.js, nur wenn auf dem Gerät ein Raum und eine Anmeldung liegen). -->
   <section class="resume" id="resume" hidden aria-labelledby="resumeTitle">
     <h2 id="resumeTitle">Weiterspielen</h2>
     <ul id="resumeList"></ul>
@@ -117,6 +117,7 @@
   </nav>
 </main>
 <script src="/abend.js?v=1"></script>
+<script src="/mb-resume.js?v=1"></script>
 <script>
 // /#tools (Leiste in den Apps, Roadmap 8.3) öffnet die Tools direkt
 const openTools=()=>{if(location.hash==="#tools")document.getElementById("tools").open=true};
@@ -145,9 +146,9 @@ function runningGames(){
   }
   return out;
 }
-(function showResume(){
-  const games=runningGames();if(!games.length)return;
-  const list=document.getElementById("resumeList");
+function showResume(games){
+  if(!games.length)return;
+  const list=document.getElementById("resumeList");list.replaceChildren();
   for(const it of games){
     const li=document.createElement("li"),a=document.createElement("a");
     a.className="resume-item "+it.k;a.href=it.href;
@@ -156,7 +157,11 @@ function runningGames(){
     li.append(a);list.append(li);
   }
   document.getElementById("resume").hidden=false;
-})();
+}
+const localGames=runningGames();
+showResume(localGames);
+// Music Battle (U.5): Raumstatus aus der Datenbank, kommt etwas später dazu und steht dann zuoberst
+window.MBResume?.load().then((it)=>{if(it)showResume([it,...localGames])});
 
 // Abend-Rangliste: erscheint, sobald heute Abend ein Spiel mit 2+ Personen beendet wurde (Abend endet nach 6 h Pause)
 function showAbend(){

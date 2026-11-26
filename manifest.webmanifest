@@ -2,7 +2,7 @@
   "id": "/",
   "name": "GameMaster",
   "short_name": "GameMaster",
-  "description": "Alle Spiele in einer App: Music 1v1, Musik-Quiz, TotalGuesser und Tools.",
+  "description": "Alle Spiele in einer App: Music 1v1, Musik-Quiz, TotalGuesser, Poker und Tools.",
   "lang": "de-CH",
   "start_url": "/",
   "scope": "/",

@@ -4,7 +4,7 @@
   --bg:#121115; --surface:#1b1a20; --line:rgb(255 255 255 / .09);
   --fg:#f3f1f6; --muted:#a9a5b3;
   /* Spiel-Farben: Icon des Eintrags und Fokus; die Vorschauen nutzen die Farben der Spiele selbst */
-  --mb:#ff3fa4; --quiz:#ffd166; --tg:#ff8a3d; --tools:#c9c4d3;
+  --mb:#ff3fa4; --quiz:#ffd166; --tg:#ff8a3d; --pk:#3ddc97; --tools:#c9c4d3;
   --f-text:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-title:"Barlow Condensed","Barlow",system-ui,sans-serif;
   --f-num:"Bungee","Arial Black",Impact,sans-serif;  /* nur in den Vorschauen der Spiele */
@@ -42,7 +42,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-
 .name{display:block;font:700 1.35rem/1.15 var(--f-title)}
 .desc{display:block;color:var(--muted);font-size:.9375rem;line-height:1.35}
 .chev{width:20px;height:20px;color:var(--muted)}
-.mb{--act:var(--mb)} .quiz{--act:var(--quiz)} .tg{--act:var(--tg)} .tools{--act:var(--tools)}
+.mb{--act:var(--mb)} .quiz{--act:var(--quiz)} .tg{--act:var(--tg)} .pk{--act:var(--pk)} .tools{--act:var(--tools)}
 
 /* Music 1v1 – «Titelkampf bei Nacht»: Violett, Pink/Cyan-Ecken, Gold für Thema, Sedgwick für das Thema */
 .mb .preview{background:#170d24;background-image:radial-gradient(70% 10rem at 0% 0%,rgb(255 63 164 / .2),transparent 70%),radial-gradient(70% 10rem at 100% 0%,rgb(56 225 255 / .14),transparent 70%)}
@@ -76,6 +76,16 @@ svg{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-
 .tg-target{display:flex;justify-content:space-between;align-items:baseline;margin-top:var(--s1);padding-top:var(--s2);border-top:1px dashed rgb(255 236 220 / .14)}
 .tg-target small{font:600 10px/1 var(--f-text);letter-spacing:.08em;text-transform:uppercase;color:#b9aa9c}
 .tg-target b{font:400 1.6rem/1 var(--f-num);color:#ffb347;font-variant-numeric:tabular-nums}
+
+/* Poker – «Kartentisch bei Nacht»: dunkles Grün, Pot auf Filz, Mint für «ist dran» */
+.pk .preview{background:#0f1412}
+.pk-felt{display:grid;justify-items:center;gap:2px;padding:var(--s2) var(--s3);border-radius:var(--r-m);background:#123526;border:1px solid rgb(255 255 255 / .1)}
+.pk-lbl{font:600 10px/1.2 var(--f-text);letter-spacing:.1em;text-transform:uppercase;color:#bfe3d2}
+.pk-felt b{font:400 1.6rem/1.1 var(--f-num);color:#eef3f0;font-variant-numeric:tabular-nums}
+.pk-side{font-size:.8rem;color:#cfe8dc}
+.pk-turn{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);font:700 1.2rem/1 var(--f-title);color:#eef3f0}
+.pk-turn em{font-style:normal;color:#3ddc97}
+.pk-btn{padding:8px 12px;border-radius:var(--r-s);background:#3ddc97;color:#062417;font:400 12px/1 var(--f-num)}
 
 /* Tools – Ausschnitt aus dem Albumrad (Screenshot, helle Optik wie das Werkzeug) */
 .tools .preview{background:#fff url(/tools-vorschau.jpg) center top/cover no-repeat}

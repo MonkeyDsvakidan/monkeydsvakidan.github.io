@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&family=Bungee&family=Sedgwick+Ave+Display&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=6">
+  <link rel="stylesheet" href="/styles.css?v=7">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -37,6 +37,12 @@
   <section class="resume" id="resume" hidden aria-labelledby="resumeTitle">
     <h2 id="resumeTitle">Weiterspielen</h2>
     <ul id="resumeList"></ul>
+  </section>
+  <!-- Abend-Rangliste (MusicBattle-Roadmap «Gemeinsamer Raum»): Punkte nach Platz aus /abend.js, nur auf diesem Gerät -->
+  <section class="abend" id="abend" hidden aria-labelledby="abendTitle">
+    <div class="abend-head"><h2 id="abendTitle">Heute Abend</h2><span id="abendMeta"></span></div>
+    <ol id="abendList"></ol>
+    <div class="abend-foot"><span>1. Platz 3 Punkte, 2. Platz 2, 3. Platz 1 · nur auf diesem Gerät</span><button type="button" id="abendReset">Neuer Abend</button></div>
   </section>
   <nav aria-label="Spiele">
     <ul class="tiles">
@@ -110,6 +116,7 @@
     </ul>
   </nav>
 </main>
+<script src="/abend.js?v=1"></script>
 <script>
 // /#tools (Leiste in den Apps, Roadmap 8.3) öffnet die Tools direkt
 const openTools=()=>{if(location.hash==="#tools")document.getElementById("tools").open=true};
@@ -150,6 +157,27 @@ function runningGames(){
   }
   document.getElementById("resume").hidden=false;
 })();
+
+// Abend-Rangliste: erscheint, sobald heute Abend ein Spiel mit 2+ Personen beendet wurde (Abend endet nach 6 h Pause)
+function showAbend(){
+  const box=document.getElementById("abend"),A=window.GMAbend;if(!A)return;
+  const s=A.load(),rows=A.standings(s);box.hidden=!rows.length;if(!rows.length)return;
+  const time=new Date(s.started).toLocaleTimeString("de-CH",{hour:"2-digit",minute:"2-digit"});
+  document.getElementById("abendMeta").textContent=`${s.games.length} ${s.games.length===1?"Spiel":"Spiele"} · seit ${time}`;
+  const list=document.getElementById("abendList");list.replaceChildren();
+  for(const r of rows){
+    const li=document.createElement("li");if(r.place===1)li.className="lead";
+    li.innerHTML=`<b class="pl"></b><span><span class="name"></span><small></small></span><b class="pts"></b>`;
+    li.querySelector(".pl").textContent=r.place+".";li.querySelector(".name").textContent=r.name;
+    li.querySelector("small").textContent=`${r.wins} ${r.wins===1?"Sieg":"Siege"} · ${r.games} ${r.games===1?"Spiel":"Spiele"}`;
+    li.querySelector(".pts").textContent=r.points;list.append(li);
+  }
+}
+showAbend();
+document.getElementById("abendReset").onclick=()=>{if(confirm("Neuer Abend? Die Rangliste beginnt wieder bei null, die Namen bleiben."))
+  {window.GMAbend.reset();showAbend()}};
+// Zurück aus einem Spiel (Seite aus dem Zwischenspeicher): Rangliste neu lesen
+addEventListener("pageshow",e=>{if(e.persisted)showAbend()});
 </script>
 </body>
 </html>

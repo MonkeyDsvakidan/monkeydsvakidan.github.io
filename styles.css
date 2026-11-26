@@ -96,6 +96,26 @@ details[open] .chev{transform:rotate(90deg)}
 .sub b{font-weight:600}
 .sub span{color:var(--muted);font-size:.875rem;line-height:1.35}
 
+/* Weiterspielen (U.4): kurze Liste über den Kacheln, nur wenn auf diesem Gerät ein Spiel offen ist */
+.resume{display:grid;gap:var(--s3)}
+.resume[hidden]{display:none}
+.resume h2{margin:0;font:700 1.35rem/1.15 var(--f-title)}
+.resume ul{display:grid;gap:var(--s2)}
+.resume-item{display:grid;grid-template-columns:40px 1fr 20px;gap:var(--s3);align-items:center;min-height:64px;padding:var(--s3) var(--s4);
+  border:1px solid color-mix(in srgb,var(--act) 45%,transparent);border-radius:var(--r-m);background:var(--surface);color:inherit;text-decoration:none}
+.resume-item:hover{border-color:var(--act)}
+.resume-item:focus-visible{outline:2px solid var(--act);outline-offset:2px}
+.resume-item .name{font-size:1.2rem}
+
+/* Handy: niedrigere Vorschauen (U.4), damit mehr Spiele auf einmal sichtbar sind; Nebenzeilen der Vorschau fallen weg */
+@media (max-width:759px){
+  .hero{padding:0}
+  .hero h1{font-size:clamp(3rem,13vw,4.5rem)}
+  .preview{height:112px;padding:var(--s3) var(--s4)}
+  .mb-kick,.qz-bar,.qz-range,.tg-lbl,.tg-cat,.pk-lbl,.pk-side{display:none}
+  .tg-target{margin-top:0}
+}
+
 @media (min-width:760px){
   main{max-width:960px}
   .tiles{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}

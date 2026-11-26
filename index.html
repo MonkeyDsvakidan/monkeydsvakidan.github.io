@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700&family=Bungee&family=Sedgwick+Ave+Display&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/styles.css?v=6">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -32,6 +32,12 @@
     <h1>GameMaster</h1>
     <p>Wähl ein Spiel</p>
   </header>
+  <!-- Weiterspielen (U.4): nur Spiele, deren Stand auf diesem Gerät liegt (TotalGuesser, Poker). Music Battle fehlt bewusst:
+       ob ein Raum noch läuft, weiss nur die Datenbank, und diese Seite nutzt keine. -->
+  <section class="resume" id="resume" hidden aria-labelledby="resumeTitle">
+    <h2 id="resumeTitle">Weiterspielen</h2>
+    <ul id="resumeList"></ul>
+  </section>
   <nav aria-label="Spiele">
     <ul class="tiles">
       <li><a class="tile mb" href="/MusicBattle/?mode=1v1">
@@ -108,6 +114,42 @@
 // /#tools (Leiste in den Apps, Roadmap 8.3) öffnet die Tools direkt
 const openTools=()=>{if(location.hash==="#tools")document.getElementById("tools").open=true};
 openTools();addEventListener("hashchange",openTools);
+
+// Weiterspielen (U.4): laufende Spiele aus dem Speicher dieses Geräts (gleiche Domain). Nur lesen, nie ändern.
+function readJson(key){try{return JSON.parse(localStorage.getItem(key)||"null")}catch{return null}}
+function runningGames(){
+  const out=[];
+  const tg=readJson("totalguesser.game");
+  if(tg&&Array.isArray(tg.rounds)&&Array.isArray(tg.picks)&&tg.settings&&Array.isArray(tg.settings.players)){
+    const n=tg.settings.players.length,total=tg.picks.flat().length;
+    const finished=tg.phase==="reveal"&&tg.revealed>=total;
+    if(!finished){
+      const r=tg.picks.findIndex(p=>p.length<n);
+      const detail=tg.phase==="target"?"Zielzahl festlegen":tg.phase==="reveal"?"Auflösung läuft":`Runde ${r<0?tg.rounds.length:r+1} von ${tg.rounds.length}`;
+      out.push({k:"tg",href:"/TotalGuesser/",icon:"#i-target",name:"TotalGuesser",detail:`${detail} · ${n} Spieler`});
+    }
+  }
+  const pk=readJson("poker-spielleiter-v1");
+  const g=pk&&pk.game;
+  if(g&&g.v===1&&!g.ended&&Array.isArray(g.players)){
+    const inGame=g.players.filter(p=>p.status!=="out"&&p.status!=="left").length;
+    const hand=g.handNo?` · Hand ${g.handNo}`:"";
+    out.push({k:"pk",href:"/PokerFriends/",icon:"#i-poker",name:"Poker",detail:`${g.mode==="cash"?"Cash Game":"Turnier"} · ${inGame} am Tisch${hand}`});
+  }
+  return out;
+}
+(function showResume(){
+  const games=runningGames();if(!games.length)return;
+  const list=document.getElementById("resumeList");
+  for(const it of games){
+    const li=document.createElement("li"),a=document.createElement("a");
+    a.className="resume-item "+it.k;a.href=it.href;
+    a.innerHTML=`<span class="ico"><svg aria-hidden="true"><use href="${it.icon}"/></svg></span><span><span class="name"></span><span class="desc"></span></span><svg class="chev" aria-hidden="true"><use href="#i-chev"/></svg>`;
+    a.querySelector(".name").textContent=it.name;a.querySelector(".desc").textContent=it.detail;
+    li.append(a);list.append(li);
+  }
+  document.getElementById("resume").hidden=false;
+})();
 </script>
 </body>
 </html>

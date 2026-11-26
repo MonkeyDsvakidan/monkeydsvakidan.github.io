@@ -107,6 +107,26 @@ details[open] .chev{transform:rotate(90deg)}
 .resume-item:focus-visible{outline:2px solid var(--act);outline-offset:2px}
 .resume-item .name{font-size:1.2rem}
 
+/* Abend-Rangliste: Punkte nach Platz über alle Spiele des Abends (nur auf diesem Gerät) */
+.abend{display:grid;gap:var(--s3);padding:var(--s4);border:1px solid var(--line);border-radius:var(--r-m);background:var(--surface)}
+.abend[hidden]{display:none}
+.abend-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--s1) var(--s3)}
+.abend-head h2{margin:0;font:700 1.35rem/1.15 var(--f-title)}
+.abend-head span,.abend-foot span{color:var(--muted);font-size:.875rem}
+.abend ol{display:grid;gap:var(--s1);list-style:none;margin:0;padding:0}
+.abend li{display:grid;grid-template-columns:32px 1fr auto;gap:var(--s3);align-items:center;min-height:48px;padding:var(--s1) 0;border-top:1px solid var(--line)}
+.abend li:first-child{border-top:0}
+.abend .pl,.abend .pts{font:700 1.25rem/1 var(--f-title);font-variant-numeric:tabular-nums}
+.abend .pl{color:var(--muted)}
+.abend .pts{font-size:1.5rem}
+.abend li .name{display:block;font-weight:600;overflow-wrap:anywhere}
+.abend li small{display:block;color:var(--muted);font-size:.8125rem}
+.abend li.lead .pl,.abend li.lead .name{color:var(--fg)}
+.abend-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2) var(--s3);padding-top:var(--s2);border-top:1px solid var(--line)}
+.abend-foot button{min-height:44px;padding:0 var(--s4);border:1px solid var(--line);border-radius:var(--r-s);background:transparent;color:var(--fg);font:600 .9375rem var(--f-text);cursor:pointer}
+.abend-foot button:hover{border-color:rgb(255 255 255 / .3)}
+.abend-foot button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+
 /* Handy: niedrigere Vorschauen (U.4), damit mehr Spiele auf einmal sichtbar sind; Nebenzeilen der Vorschau fallen weg */
 @media (max-width:759px){
   .hero{padding:0}
